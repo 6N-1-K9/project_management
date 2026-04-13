@@ -1,0 +1,83 @@
+<mxfile host="app.diagrams.net" modified="2026-04-09T12:00:00.000Z" agent="ChatGPT" version="24.7.17" type="device">
+  <diagram id="data-model" name="Подготовка данных">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="user" value="Пользователь&#xa;----------------&#xa;ID пользователя&#xa;Email&#xa;Логин&#xa;Пароль (хэш)&#xa;Дата регистрации&#xa;Роль&#xa;Статус аккаунта" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="220" height="180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sourceImage" value="Исходное изображение&#xa;----------------&#xa;ID изображения&#xa;ID пользователя&#xa;Имя файла&#xa;Формат&#xa;Размер файла&#xa;Разрешение&#xa;Дата загрузки&#xa;Путь к файлу" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="60" width="230" height="190" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="styleSet" value="Набор референсов стиля&#xa;----------------&#xa;ID набора&#xa;ID пользователя&#xa;Название набора&#xa;Дата создания&#xa;Описание" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="280" width="230" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="styleRefImage" value="Референсное изображение&#xa;----------------&#xa;ID референса&#xa;ID набора референсов&#xa;Имя файла&#xa;Формат&#xa;Разрешение&#xa;Путь к файлу" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="280" width="230" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="task" value="Задача обработки&#xa;----------------&#xa;ID задачи&#xa;ID пользователя&#xa;ID исходного изображения&#xa;ID набора референсов&#xa;Тип обработки&#xa;Статус выполнения&#xa;Дата/время запуска&#xa;Дата/время завершения" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="60" width="250" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="params" value="Параметры обработки&#xa;----------------&#xa;ID параметров&#xa;ID задачи&#xa;Выбранная модель&#xa;Интенсивность стилизации&#xa;Целевое разрешение&#xa;Дополнительные параметры" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="60" width="230" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="resultImage" value="Результирующее изображение&#xa;----------------&#xa;ID результата&#xa;ID задачи&#xa;Имя файла&#xa;Формат&#xa;Разрешение&#xa;Путь к файлу&#xa;Дата сохранения" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="280" width="230" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="history" value="История обработок&#xa;----------------&#xa;ID записи истории&#xa;ID пользователя&#xa;ID задачи&#xa;Тип операции&#xa;Результат выполнения&#xa;Дата записи" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="500" width="230" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="1 : M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="user" target="sourceImage">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" value="1 : M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="user" target="styleSet">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" value="1 : M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="styleSet" target="styleRefImage">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" value="1 : M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="user" target="task">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5" value="1 : M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="sourceImage" target="task">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6" value="1 : M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="styleSet" target="task">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e7" value="1 : 1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="task" target="params">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8" value="1 : M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="task" target="resultImage">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e9" value="1 : M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="user" target="history">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e10" value="1 : M" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=12;" edge="1" parent="1" source="task" target="history">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
